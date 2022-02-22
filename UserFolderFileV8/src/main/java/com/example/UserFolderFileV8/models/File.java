@@ -1,8 +1,6 @@
-package com.codeclan.example.UserFolderFile.models;
+package com.example.UserFolderFileV8.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
-import org.springframework.web.bind.annotation.RestController;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "files")
