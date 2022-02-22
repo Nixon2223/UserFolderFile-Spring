@@ -1,5 +1,7 @@
 package com.example.UserFolderFileV8.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,16 +21,16 @@ public class File {
     @Column(name = "size")
     private int size;
 
-//    @ManyToOne
-//    @JoinColumn(name = "folder_id", nullable = false)
-//    @JsonIgnoreProperties({"folders"})
-//    private Folder folder;
+    @ManyToOne
+    @JoinColumn(name = "folder_id", nullable = false)
+    @JsonIgnoreProperties({"files"})
+    private Folder folder;
 
-    public File(String name, String extension, int size) {
+    public File(String name, String extension, int size, Folder folder) {
         this.name = name;
         this.extension = extension;
         this.size = size;
-//        this.folder = folder;
+        this.folder = folder;
     }
 
     public File(){
@@ -42,13 +44,13 @@ public class File {
         this.id = id;
     }
 
-//    public Folder getFolder() {
-//        return folder;
-//    }
-//
-//    public void setFolder(Folder folder) {
-//        this.folder = folder;
-//    }
+    public Folder getFolder() {
+        return folder;
+    }
+
+    public void setFolder(Folder folder) {
+        this.folder = folder;
+    }
 
 
     public String getName() {
