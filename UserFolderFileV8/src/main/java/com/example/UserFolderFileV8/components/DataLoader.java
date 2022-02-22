@@ -29,10 +29,11 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
         User user1 = new User("user1");
-        userRepository.save(user1);
         Folder folder1 = new Folder("folder1", user1);
-        folderRepository.save(folder1);
         File file1 = new File("file1", "JPEG", 2000, folder1);
+        
+        userRepository.save(user1);
+        folderRepository.save(folder1);
         fileRepository.save(file1);
     }
 

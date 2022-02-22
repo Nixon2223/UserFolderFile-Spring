@@ -30,6 +30,10 @@ public class User {
 
     }
 
+    public void addFolder(Folder folder) {
+        folders.add(folder);
+    }
+
     public Long getId() {
         return id;
     }
